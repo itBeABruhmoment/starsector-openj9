@@ -1,4 +1,8 @@
+:: GC, JIT, and AOT logging on
 ..\jre_j9\bin\java.exe ^
+   -Xaot:verbose ^
+   -Xverbosegclog:./openj9_logs/gc_log.txt ^
+   -Xjit:verbose,vlog=./openj9_logs/jit_log ^
    -Xshareclasses:none ^
    -Xmnx500m ^
    -Xmint0.00 ^

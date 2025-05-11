@@ -20,12 +20,15 @@
 :: Related to loading shared classes
 :: -Xaot
 
+
 ..\jre_j9\bin\java.exe ^
    -Xshareclasses:cacheDir=none ^
-   -Xmn500m ^
+   -Xmnx500m ^
+   -Xmint0.00 ^
+   -Xmaxt0.01 ^
+   -Xmoi8m ^
    -noverify ^
    -Xaggressive ^
-   -XX:+AlwaysPreTouch ^
    -XX:+CompactStrings ^
    -XX:+ShowCodeDetailsInExceptionMessages ^
    -XX:+PrintCodeCache ^

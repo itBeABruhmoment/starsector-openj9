@@ -14,7 +14,7 @@ SET user_input=n
 if "%arg1:~-10%"=="Starsector" (
     goto :starsector_present
 ) else (
-    ECHO WARNING: The path %arg1% does not end with "Starsector", this seems like a mistake
+    ECHO WARNING: The path %arg1% does not end with "Starsector". Are you sure this is the correct folder?
     goto :starsector_missing
 )
 
@@ -72,6 +72,8 @@ ECHO Deleting temp folder %temp_extract%
 
 ECHO Moving j9_starsector.bat to %starsector_core%
 XCOPY /Y ".\j9_starsector.bat" %starsector_core%
+XCOPY /Y ".\debug_j9_starsector.bat" %starsector_core%
+MD %starsector_core%\openj9_logs
 
 ECHO Install successful
 exit 0

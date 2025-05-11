@@ -9,15 +9,15 @@ This is a kit for making Starsector use OpenJ9.
 5. Run the game with "Starsector\starsector-core\j9_starsector.bat"
 
 # JVM Command Line Options of Interest
-Read the docs for exact details https://eclipse.dev/openj9/docs
+Read the docs for exact details on options https://eclipse.dev/openj9/docs
 
 ## Performance
 1. XX:+AlwaysPreTouch : Makes the JVM allocate the maximum amount of heap space set by Xmx / Xms. This will likely significantly increases RAM usage, and benchmarking experiments did not indicate performance improvements.
 2. Xmoi : The amount of memory the heap grows / shrinks by at a time. Likely has little impact on performance.
 3. Xaggressive : Seems to result in minor performance improvements.
-4. XtlhPrefetch : It may or may not improve performance. Windows only.
+4. XtlhPrefetch : Does not seem to improve performance from benchmarking. Windows only.
 5. Xmint / Xmaxt : Specify the min and max fraction of time to spend on garbage collection. Generally, smaller ranges mean more memory usage and less time spend on GC.
-6. Xshareclasses : Creates a sort of cache file. Suspected cause of stuttering and may or may not improve performance.
+6. Xshareclasses : Creates a sort of cache file. Suspected cause of stuttering and does not seem to improve average fps from benchmarking.
 7. Xmx / Xms : Heap size
 8. Xmn : Nursery size for gencon (default) GC policy. Larger values result in longer but less frequent garbage collection events. Avoid large values to avoid stuttering.
 
